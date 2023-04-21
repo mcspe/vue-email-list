@@ -100,9 +100,10 @@
         class="list-unstyled">
   
         <li 
-          class="my-3" 
+          class="my-3"
           role="button"
-          v-for="email in emailList">
+          v-for="(email, i) in emailList"
+          :class="{'text-primary': (i%2)}">
   
           <span class="me-3">&rArr;</span>
           <span>{{email}}</span>
