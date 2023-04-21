@@ -12,7 +12,7 @@ createApp({
   },
   methods: {
     generateList() {
-      if (this.emailListN) {
+      if (this.emailListN > 0) {
         this.loading = true;
         this.startLoading = true;
         this.emailList = [];
