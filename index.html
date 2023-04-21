@@ -57,10 +57,63 @@
       }
     }
   </style>
+  <!-- BOOTSTRAP -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css' integrity='sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==' crossorigin='anonymous'/>
+
   <title>Vue Email List</title>
 </head>
 <body>
-  <!-- <div class="lds-ripple"><div></div><div></div></div> -->
+  
+  <div class="container text-center p-5" id="app">
+
+    <h1 class="text-uppercase mb-5">Vue Email List Generator</h1>
+
+    <div class="row justify-content-center mb-5">
+      <div class="col-5">
+        <input
+          class="form-control"
+          v-model="emailListN"
+          @keyup.enter="generateList"
+          placeholder="Inserire il numero di indirizzi che si vuole generare"
+          type="number"
+        >
+      </div>
+      <div class="col-1">
+        <button @click="generateList" class="btn btn-primary">Cerca</button>
+      </div>
+    </div>
+
+    <div
+      v-if="startLoading">
+
+      <div 
+        v-if="loading"
+        class="lds-ripple">
+        <div></div>
+        <div></div>
+      </div>
+  
+      <ul 
+        v-else
+        class="list-unstyled">
+  
+        <li 
+          class="my-3" 
+          role="button"
+          v-for="email in emailList">
+  
+          <span class="me-3">&rArr;</span>
+          <span>{{email}}</span>
+          <span class="ms-3">&lArr;</span>
+  
+        </li>
+  
+      </ul>
+
+    </div>
+
+  </div>
+
   <script src="./js/script.js"></script>
 </body>
 </html>
