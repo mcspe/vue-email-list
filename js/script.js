@@ -7,7 +7,8 @@ createApp({
       emailListN: null,
       loading: true,
       startLoading: false,
-      apiUrl: 'https://flynn.boolean.careers/exercises/api/random/mail'
+      apiUrl: 'https://flynn.boolean.careers/exercises/api/random/mail',
+      errorMsg: ''
     }
   },
   methods: {
@@ -27,6 +28,11 @@ createApp({
           this.loading = false;
         }, 2000);
         this.emailListN = null;
+      } else {
+        this.errorMsg = 'Valore inserito non consentito';
+        setTimeout(() => {
+          this.errorMsg = '';
+        }, 2000);
       }
     }
   },
