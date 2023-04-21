@@ -29,6 +29,7 @@ createApp({
         }, 2000);
         this.emailListN = null;
       } else {
+        this.emailList = [];
         this.errorMsg = 'Valore inserito non consentito';
         setTimeout(() => {
           this.errorMsg = '';
