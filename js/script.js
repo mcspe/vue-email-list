@@ -16,13 +16,16 @@ createApp({
         this.loading = true;
         this.startLoading = true;
         this.emailList = [];
-        for (let i = 0; i < this.emailListN; i++) {
-          axios.get(this.apiUrl)
-            .then( result => {
-              this.emailList.push(result.data.response);
-            });
-        }
-        this.loading = false;
+        const cycleLimit = this.emailListN;
+        setTimeout(() => {
+          for (let i = 0; i < cycleLimit; i++) {
+            axios.get(this.apiUrl)
+              .then( result => {
+                this.emailList.push(result.data.response);
+              });
+          }
+          this.loading = false;
+        }, 2000);
         this.emailListN = null;
       }
     }
